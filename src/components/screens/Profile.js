@@ -1,12 +1,18 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
+import Login  from "./Login.js";
+
 // import { SearchBar } from 'react-native-elements';
 
-class Profile extends Component {
-    render(){
+export default class Profile extends Component {
+    render() {
         return(
             <View style={styles.container}>
-                <Text> Hello </Text>
+                <StatusBar
+                    backgroundColor="#1c313a"
+                    barStyle="light-content"
+                />
+              <Login />
             </View>
         );
     }
@@ -15,7 +21,8 @@ class Profile extends Component {
 const styles = StyleSheet.create({
     container : { 
       backgroundColor: '#455a64',
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
     }
   });
-
-export default Profile;

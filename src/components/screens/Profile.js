@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Login  from "./Login.js";
+import Signup from "./Signup.js";
 
 // import { SearchBar } from 'react-native-elements';
 
@@ -8,11 +9,8 @@ export default class Profile extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <StatusBar
-                    backgroundColor="#1c313a"
-                    barStyle="light-content"
-                />
-              <Login />
+                
+              <Signup />
             </View>
         );
     }

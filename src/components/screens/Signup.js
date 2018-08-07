@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Form from '../Form.js'
 
-export default class Login extends Component {
+export default class Signup extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <Form type="Login"/>
+                <Form type="Signup"/>
                 <View style={styles.signupTextCont}>
-                    <Text style={styles.signupText}>Don't Have an Account yet?</Text>
-                    <Text style={styles.signupButton}> Sign Up</Text>
+                    <Text style={styles.signupText}>Already Have an Account?</Text>
+                    <Text style={styles.signupButton}> Sign In</Text>
                 </View>
             </View>
         )

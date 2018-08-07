@@ -11,19 +11,17 @@ class Map extends Component {
             markers: [
              {
                 coordinate: {
-                    latitude: 42.3569998,
-                    longitude: -71.0597768
+                    latitude: 42.292501,
+                    longitude: -71.080053
                 },
-                title: "Resilient Coders",
-                description: "50 Milk St"
+                title: "Lee School"
              },
              {
                  coordinate: {
                      latitude: 42.3649365,
                      longitude: -71.0669152
                  },
-                 title: "Basketball City",
-                 description: "Basketball gym"
+                 title: "Basketball City"
              }
              
             ]
@@ -31,20 +29,35 @@ class Map extends Component {
     }
 
     getParks(region){
+        console.log(JSON.stringify(region));
         const query = queryString.stringify(region)
         fetch(`${config.url}api/park?${query}`)
-            .then(response=>{
-                return response.json()
+            .then(response => {
+                console.log("success");
+                return response.json();
         })
         .then(responseJson => {
-            console.log(responseJson);
-            // this.setState({
-
-            // })
+            let newMarkers = [];
+            responseJson.data.forEach(par => {
+                console.log(JSON.stringify(par.location));
+                const loc ={   
+                    coordinate: {
+                        latitude: par.location.coordinates[1],
+                        longitude: par.location.coordinates[0]
+                    },
+                    title: par.name
+                };
+                console.log(loc);
+                newMarkers.push(loc);               
+            })
+           
+            this.setState({
+                markers: newMarkers
+            });            
         })
-        .catch((err) =>{
+        .catch((err) => {
             alert("Sorry something went wrong");
-        })
+        });
     }
 
 
@@ -53,13 +66,13 @@ class Map extends Component {
             <View style={{ height: 100 + "%", width: 100 + "%" }}>
                 <MapView
                     onRegionChangeComplete={region => this.getParks(region)}
-                style={{ height: 100 + "%", width: 100 + "%" }}
+                    style={{ height: 100 + "%", width: 100 + "%" }}
                 // provider={PROVIDER_GOOGLE}
-                initialRegion={{
-                    latitude: 42.3569998,
-                    longitude: -71.0597768,
-                    latitudeDelta: 0.1,
-                    longitudeDelta: 0.1
+                    initialRegion={{
+                        latitude: 42.3569998,
+                        longitude: -71.0597768,
+                        latitudeDelta: 0.1,
+                        longitudeDelta: 0.1
                 }}
             >
                 { this.state.markers.map((marker, i) => {

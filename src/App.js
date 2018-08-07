@@ -1,22 +1,23 @@
 import React, {Component} from "react";
 import { Main } from "./components/screens";
-import { TabNavigator } from "react-navigation";
+import { createMaterialTopTabNavigator } from "react-navigation";
+import { Courts } from "./components/screens";
+import { Profile } from "./components/screens";
 
-const Tabs = TabNavigator(
+const Tabs = createMaterialTopTabNavigator(
   {
     Nearby: Main,
     Search: Main,
-    Me: Main,
-    Courts: Main,
-    More: Main
+    Me: Profile,
+    Courts: Courts
   },
   {}
 );
 
 export default class App extends Component {
   render() {
-    return <Tabs />;
-    
+    return <Tabs />
+      
   }
 }
 

@@ -1,24 +1,48 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Form from '../Form.js'
 
-export default class Signup extends Component {
-    render() {
-        return(
-            <View style={styles.container}>
-                <Form type="Signup"/>
-                <View style={styles.signupTextCont}>
-                    <Text style={styles.signupText}>Already Have an Account?</Text>
-                    <Text style={styles.signupButton}> Sign In</Text>
-                </View>
-            </View>
-        )
+import {Actions} from 'react-native-router-flux';
+
+const Signup = (props) => {
+    const goBack = () => {
+        Actions.pop();
     }
+    return(
+        <View style={styles.container}>
+            <Form type="Signup"/>
+            <View style={styles.signupTextCont}>
+                <Text style={styles.signupText}>Already Have an Account?</Text>
+                <TouchableOpacity onPress={goBack}><Text style={styles.signupButton}> Sign In</Text></TouchableOpacity>
+            </View>
+        </View>
+    )
 }
+
+
+// export default class Signup extends Component {
+
+//     goBack() {
+//         Actions.pop();
+//     }
+
+
+//     render() {
+//         return(
+//             <View style={styles.container}>
+//                 <Form type="Signup"/>
+//                 <View style={styles.signupTextCont}>
+//                     <Text style={styles.signupText}>Already Have an Account?</Text>
+//                     <TouchableOpacity onPress={this.goBack}><Text style={styles.signupButton}> Sign In</Text></TouchableOpacity>
+//                 </View>
+//             </View>
+//         )
+//     }
+// }
 
 const styles = StyleSheet.create({
     container : { 
-      backgroundColor: '#455a64',
+      backgroundColor: '#65D8F6',
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center'
@@ -43,3 +67,5 @@ const styles = StyleSheet.create({
           fontWeight: '500'
       }
   });
+
+  export default Signup

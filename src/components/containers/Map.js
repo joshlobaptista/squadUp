@@ -31,9 +31,10 @@ class Map extends Component {
     getParks(region){
         console.log(JSON.stringify(region));
         const query = queryString.stringify(region)
-        fetch(`${config.url}api/park?${query}`)
+        const url = config.url;
+        fetch(`${url}api/park?${query}`)
             .then(response => {
-                console.log("success");
+                console.log(response);
                 return response.json();
         })
         .then(responseJson => {
@@ -50,7 +51,7 @@ class Map extends Component {
                 console.log(loc);
                 newMarkers.push(loc);               
             })
-           
+           console.log(newMarkers)
             this.setState({
                 markers: newMarkers
             });            

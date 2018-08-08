@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
-import Login  from "./Login.js";
-import Signup from "./Signup.js";
+import { View, StyleSheet } from "react-native";
 
-// import { SearchBar } from 'react-native-elements';
+import Routes from './Routes.js';
 
 export default class Profile extends Component {
     render() {
         return(
             <View style={styles.container}>
                 
-              <Signup />
+              <Routes />
             </View>
         );
     }
@@ -18,9 +16,6 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
     container : { 
-      backgroundColor: '#455a64',
       flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center'
     }
   });

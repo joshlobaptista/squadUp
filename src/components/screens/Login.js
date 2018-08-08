@@ -1,15 +1,22 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Form from '../Form.js'
 
+import {Actions} from 'react-native-router-flux';
+
 export default class Login extends Component {
+
+    signup() {
+        Actions.signup()
+    }
+
     render() {
         return(
             <View style={styles.container}>
                 <Form type="Login"/>
                 <View style={styles.signupTextCont}>
                     <Text style={styles.signupText}>Don't Have an Account yet?</Text>
-                    <Text style={styles.signupButton}> Sign Up</Text>
+                    <TouchableOpacity onPress={this.signup}><Text style={styles.signupButton}> Sign Up</Text></TouchableOpacity>
                 </View>
             </View>
         )
@@ -18,7 +25,7 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
     container : { 
-      backgroundColor: '#455a64',
+      backgroundColor: '#65D8F6',
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center'

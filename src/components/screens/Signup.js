@@ -93,6 +93,7 @@ class Signup extends Component {
 
 const styles = StyleSheet.create({
     input: {
+        borderRadius: 25,
         height:50,
         width: 100 + "%",
         paddingHorizontal: 50,

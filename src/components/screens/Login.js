@@ -63,7 +63,7 @@ class Login extends Component {
                     backgroundColor: "#5CB0D7"
                 }}
                 >
-                <Text>Sign Up Page</Text>
+                <Text>Login Page</Text>
                 <TextInput 
                     autoCapitalize="none"
                     // taking control of the values, telling it what to display.. called a controlled component
@@ -99,6 +99,7 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
     input: {
+        borderRadius: 25,
         height:50,
         width: 100 + "%",
         paddingHorizontal: 50,

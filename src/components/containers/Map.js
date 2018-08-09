@@ -31,8 +31,8 @@ class Map extends Component {
     getParks(region){
         console.log(JSON.stringify(region));
         const query = queryString.stringify(region)
-        const url = config.url;
-        fetch(`${url}api/park?${query}`)
+        const url = config.baseUrl;
+        fetch(`${url}parks?${query}`)
             .then(response => {
                 console.log(response);
                 return response.json();

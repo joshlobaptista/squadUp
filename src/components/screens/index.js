@@ -1,9 +1,9 @@
 import Main from './Main.js';
 import Courts from './Courts.js';
+import Login from './Login.js';
 import Profile from './Profile.js';
-import Login  from "./Login.js";
+import Signup from './Signup.js';
 
-export { Main };
-export { Courts };
-export { Profile };
-export { Login };
+
+export { Main, Courts, Login, Profile, Signup };
+

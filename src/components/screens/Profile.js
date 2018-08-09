@@ -1,21 +1,36 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
+import Form from '../Form.js'
 
-import Routes from './Routes.js';
+class Profile extends Component {
 
-export default class Profile extends Component {
-    render() {
-        return(
-            <View style={styles.container}>
-                
-              <Routes />
-            </View>
+    login() {
+        this.props.navigation.navigate("Map");
+        //Navigate to the next page
+    }
+
+    render(){
+        return (
+            <TouchableOpacity 
+                style={{
+                    height: 100 + "%",
+                    width: 100 + "%",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+                onPress={() => { this.login()
+                }}
+                >
+                <Text>Future Profile Page</Text>
+            </TouchableOpacity>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container : { 
-      flex: 1,
-    }
-  });
+
+
+
+
+
+  export default Profile;

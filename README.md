@@ -1,5 +1,23 @@
 # squadUp
 
+This is a full-stack Mobile application to allow users to Locate nearby basketball courts and get some information and the selected basketball court. Still under development.
+
+# How It's Made:
+** Tech Used: ** React native, Node.Js, Express and MongoDB
+
+The objective of this project is to reduce time spent searching for courts and setting up games to be played at selected court. This is using React-native front-end and Express and MongoDb at the back end. Still under development to a more complete product.
+
+# Optimization:
+Still optimizing the project to have Users' profile, A more thorough list of courts with information of said court, and a chat room for each court so users can schedule games through the app.
+
+More ideas to come as progess are made.
+
+# Leason Learned
+The React Framework is asychronous so have to be aware of race conditions, the bind of the keyword this to functions but using express functions avoid those bindings. Still more to come as development continues.
+
+# Contribution
+I would love some feedback on how to improve this project. If you have any questions or comments please reach out through my contact information on github. I look forward to hearing great ideas from others.
+
 SETUP
 # Requirements
 Before you get started, make sure you have the following dependencies installed on your machine:

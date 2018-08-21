@@ -12,8 +12,8 @@ Latest React Native CLI
 Installation
 # Install dependencies
 
-$ npm install
-$ react-native link
+    $ npm install
+    $ react-native link
 Running the iOS application
 Install Requirements:
 Xcode for iOS development (download from Mac App Store)
@@ -26,4 +26,4 @@ Install native iOS dependencies
  $ (cd ios; pod init; pod repo update; pod install)
 # Build the app and run the simulator via react-native:
 
- $ react-native run-ios
+    $ react-native run-ios

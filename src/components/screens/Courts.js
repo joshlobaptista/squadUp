@@ -1,83 +1,78 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Button, FlatList } from "react-native";
-
+import config from '../../config';
 
 class Courts extends Component {
     constructor(props) {
       super(props);
       this.state = { 
         courts: [
-        {
-      "_id": {
-          "$oid": "5b6644c5fb6fc06798a117cb"
-      },
-      "name": "Tobin Community Center",
-      "location": {
-          "type": "Point",
-          "coordinates": [-71.098164,
-              42.332047
-          ]
-      },
-      "category": "Parks"
-  },
-        {
-      "_id": {
-          "$oid": "5b6644c5fb6fc06798a11234567"
-      },
-      "name": "Test 2",
-      "location": {
-          "type": "Point",
-          "coordinates": [-71.098164,
-              42.332047
-          ]
-      },
-      "category": "Parks"
-  },
-        {
-      "_id": {
-          "$oid": "5b6644c5fb6fc067982345"
-      },
-      "name": "Test 3",
-      "location": {
-          "type": "Point",
-          "coordinates": [-71.098164,
-              42.332047
-          ]
-      },
-      "category": "Parks"
-  }
-      ]
+            {
+                "_id": {
+                    "$oid": "5b6644c5fb6fc06798a117cb"
+                },
+                "name": "Tobin Community Center",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [-71.098164,
+                        42.332047
+                    ]
+                },
+                "category": "Parks"
+            },
+                  {
+                "_id": {
+                    "$oid": "5b6644c5fb6fc06798a11234567"
+                },
+                "name": "Perry Park",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [-71.098164,
+                        42.332047
+                    ]
+                },
+                "category": "Parks"
+            },
+                  {
+                "_id": {
+                    "$oid": "5b6644c5fb6fc067982345"
+                },
+                "name": "Dudley park",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [-71.098164,
+                        42.332047
+                    ]
+                },
+                "category": "Parks"
+            }
+          
+        ]
       };
-      
     }
-    renderCourts (courts) {
-        courts.map(court=>{
+    renderCourts ({item}) {
             return(
-            <View style={{height: 60, width: 60}}>
-                <Text>{court.name}</Text>
+            <View style={{
+            height: 60,
+            width: 200,
+            justifyContent: 'center',
+            margin: 'auto',
+            flex: 1
+             }}>
+                <Text>{item.name}</Text>
             </View>
             )
-        })
-        // return <FlatList
-        // data={this.state.courts}
-        // key={index}
-        // renderItem={ ({ item }) => {
-        // console.log(item);
-        // <View style={{height: 60, width: 60}}>
-        //     <Text>{court.title}</Text>
-        // </View>
-        // }}
-        // />
-}
-    
+    }
     render() {
-        const courts = this.state.courts.map(court=>{
+        const state = this.state;
+        const courts = state.length ? state.courts.map(court=>{
                 return(
-                <View key={court.name} style={{height: 60, width: 200}}>
-                    <Text>{court.name}</Text>
-                </View>
+                    <FlatList
+                    renderItem={this.renderCourts}
+                    data={state.courts}
+                    />
                 )
-            })
+            }) : null;
       return (
         <View style={{
             height: 100 + "%",
@@ -88,7 +83,10 @@ class Courts extends Component {
             backgroundColor: "#5CB0D7"
             }} >
           <Text>Courts List</Text>
-        {courts}
+          <FlatList
+            renderItem={this.renderCourts}
+            data={state.courts}
+             />
         </View>
       );
     }

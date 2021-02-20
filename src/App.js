@@ -1,24 +1,31 @@
 import React, {Component} from "react";
-import { Main } from "./components/screens";
-import { createBottomTabNavigator } from "react-navigation";
-import { Courts } from "./components/screens";
-import { Profile } from "./components/screens";
+import { Main, Courts, Login, Profile, Signup } from "./components/screens";
+import { createBottomTabNavigator, createSwitchNavigator, createStackNavigator } from "react-navigation";
 
-const Tabs = createBottomTabNavigator(
-  {
-    Me: Profile,
-    Search: Main,
-    Nearby: Main,
-    Courts: Courts
-  },
-  {}
-);
+const Tabs = createBottomTabNavigator({
+  Map: Main,
+  Profle: Profile,
+  Courts: Courts
+});
 
-export default class App extends Component {
+const IntroStack = createStackNavigator ({
+  login: Login,
+  signup: Signup
+});
+
+const MainStack = createSwitchNavigator({
+    auth: IntroStack,
+    Main: Tabs,
+  
+});
+
+class App extends Component {
   render() {
-    return <Tabs />;
+    return <MainStack />;
 
     
   }
 }
+
+export default App;
 

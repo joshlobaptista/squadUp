@@ -9,11 +9,15 @@ export default class Form extends Component {
                 <TextInput style={styles.inputBox}
                     placeholder='Email' 
                     placeholderTextColor= '#ffffff'
+                    selectionColor= '#fff'
+                    keyboardType='email-address'
+                    onSubmitEditing={() => this.password.focus()}
                     />
                 <TextInput style={styles.inputBox}
                     placeholder='Password' 
                     secureTextEntry={true}
                     placeholderTextColor= '#ffffff'
+                    ref={(input) => this.password = input}
                     />
 
                 <TouchableOpacity style={styles.button}>
@@ -26,7 +30,7 @@ export default class Form extends Component {
 
 const styles = StyleSheet.create({
     container : { 
-      flexGrow: 10,
+      flexGrow: 1,
       alignItems: 'center',
       justifyContent: 'center'
     },
@@ -43,7 +47,7 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        backgroundColor:'#1c313a',
+        backgroundColor:'#1362D1',
         width:250,
         borderRadius: 25,
         marginVertical: 5,

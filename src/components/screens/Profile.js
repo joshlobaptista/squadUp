@@ -1,26 +1,36 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
-import Login  from "./Login.js";
-import Signup from "./Signup.js";
+import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
+import Form from '../Form.js'
 
-// import { SearchBar } from 'react-native-elements';
+class Profile extends Component {
 
-export default class Profile extends Component {
-    render() {
-        return(
-            <View style={styles.container}>
-                
-              <Signup />
-            </View>
+    login() {
+        this.props.navigation.navigate("Map");
+        //Navigate to the next page
+    }
+
+    render(){
+        return (
+            <TouchableOpacity 
+                style={{
+                    height: 100 + "%",
+                    width: 100 + "%",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+                onPress={() => { this.login()
+                }}
+                >
+                <Text>Future Profile Page</Text>
+            </TouchableOpacity>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container : { 
-      backgroundColor: '#455a64',
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
-  });
+
+
+
+
+
+  export default Profile;

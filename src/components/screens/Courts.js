@@ -1,21 +1,32 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-// import { SearchBar } from 'react-native-elements';
+import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
+import Form from '../Form.js'
 
 class Courts extends Component {
+
+    login() {
+        this.props.navigation.navigate("Map");
+        //Navigate to the next page
+    }
+
     render(){
-        return(
-            <View style={styles.container}>
-                <Text> List Of Courts here </Text>
-            </View>
+        return (
+            <TouchableOpacity 
+                style={{
+                    height: 100 + "%",
+                    width: 100 + "%",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+                onPress={() => { this.login()
+                }}
+                >
+                <Text>List of Courts Page</Text>
+            </TouchableOpacity>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container : { 
-      backgroundColor: '#455a64',
-    }
-  });
 
-export default Courts;
+  export default Courts;
